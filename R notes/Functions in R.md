@@ -33,6 +33,7 @@ circumference <- function(r=1){
 print(circumference())
 ```
 [1] 6.283185
+
 If we call the function with no argument passed, it will calculate the circumference of a unit circle. Otherwise, it will calculate with the provided radius 'r'.
 
 ## Function Body
