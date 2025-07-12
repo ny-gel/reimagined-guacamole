@@ -48,6 +48,8 @@ for (i in 1:5) {
   }
 }
 ```
+It's important that `break` is only used after `cat()` as the program exits the loop immediately and will not print the statement you want.
+
   
 ## Vectors
 
