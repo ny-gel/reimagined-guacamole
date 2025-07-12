@@ -68,7 +68,12 @@ sum(vector1) # returns 10
 mean(vector1) # returns 2.5
 paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
 
-# Sum values in a vector
+
+
+**Applications in vectors**
+
+Sum values in a vector
+```r
 x <- c(5, 8, 12, 105, 7)
 total <- 0
 for (val in x) {
@@ -78,8 +83,10 @@ for (val in x) {
   }
   total <- total + val
 }
+```
 
-#skipping missing values in vector
+```r
+Skipping missing values in vector
 names <- c("John", "Jane", NA, "Doe", "Alice", NA)
 for (name in names) {
   if (is.na(name)) {
@@ -88,6 +95,7 @@ for (name in names) {
   print(name)
 }
 ```
+
 
 
 ### Matrices
