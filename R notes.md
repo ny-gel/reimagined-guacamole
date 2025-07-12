@@ -58,7 +58,7 @@ Vectors are one-dimensional arrays of data in R.
 ```r
 # Create a vector
 vector1 <- c(1, 2, 3, 4)
-#`c()` is used to concatenate values into a vector (numbers, strings) and keeps them separate. `paste()` is used to join into a <u> single <u> string.
+`c()` # is used to concatenate values into a vector (numbers, strings) and keeps them separate. `paste()` is used to join into a <u> single <u> string.
 
 # Access elements of a vector
 vector1[2] # returns 2
@@ -66,6 +66,7 @@ vector1[2] # returns 2
 # Perform operations on a vector
 sum(vector1) # returns 10
 mean(vector1) # returns 2.5
+paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
 
 # Sum values in a vector
 x <- c(5, 8, 12, 105, 7)
