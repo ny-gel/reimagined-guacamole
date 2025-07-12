@@ -58,6 +58,7 @@ Vectors are one-dimensional arrays of data in R.
 ```r
 # Create a vector
 vector1 <- c(1, 2, 3, 4)
+#`c()` is used to concatenate values into a vector (numbers, strings) and keeps them separate. `paste()` is used to join into a <u> single <u> string.
 
 # Access elements of a vector
 vector1[2] # returns 2
