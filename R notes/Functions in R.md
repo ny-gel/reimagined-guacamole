@@ -86,6 +86,9 @@ circumference <- function(r){
 print(circumference(radius_from_diameter(4)))
 ```
 
+Here, you call `radius_from_diameter(4)`, which gives you the radius (2), and then pass that result directly into the `circumference` function -> `circumference (2)`. So the inner function is evaluated first, then passed as an argument for the outer function.
+
+
 ## Nested functions
 Occurs when we define a new function inside another function. For instance, we can sum up the area of three circles:
 
