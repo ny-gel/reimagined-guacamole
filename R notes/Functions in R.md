@@ -47,6 +47,7 @@ sum_two <- function(x,y) {
 print(sum_two(1,2))
 ```
 [1] 3
+
 This allows us to call the function by position by following the same sequence of arguments as in the function.
 i.e. x = 1 and y = 2, and not vice versa.
 
@@ -60,6 +61,7 @@ print(subtract_two_nums(x=3, y=1))
 print(subtract_two_nums(y=1, x=3))
 ```
 
+
 It's also possible to mix position and name-based matching of the arguments when calling the function. Using the example of calculating BMR in a 30y F:
 
 ```r
@@ -68,11 +70,12 @@ calculate_calories_women <- function(weight, height, age=30){
 }
 print(calculate_calories_women(60, 165))
 ```
+
 Since one of the parameters has a defined assigned value to it, when we pass two arguments to the function, R interprets the third missing argument should be set to its default value. 
 
 
 ## Joining functions
-1. Passing the output from calling one function directly to anther
+Occurs by passing the output from calling one function directly to another:
 ```r
 radius_from_diameter <- function(d){
     d/2
