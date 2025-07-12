@@ -67,7 +67,7 @@ vector1[2] # returns 2
 sum(vector1) # returns 10
 mean(vector1) # returns 2.5
 paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
-
+```
 
 
 **Applications in vectors**
@@ -85,8 +85,9 @@ for (val in x) {
 }
 ```
 
-```r
+
 Skipping missing values in vector
+```r
 names <- c("John", "Jane", NA, "Doe", "Alice", NA)
 for (name in names) {
   if (is.na(name)) {
