@@ -1,4 +1,4 @@
-##Functions in R
+# Functions in R
 
 The function in R consists of three separate components:
 
@@ -8,7 +8,7 @@ function_name <- function(parameters){
 }
 ```
 
-##Function Name
+## Function Name
 Basically what is used to call the function.
 
 ## Function parameters aka formal arguments
@@ -35,7 +35,7 @@ print(circumference())
 [1] 6.283185
 If we call the function with no argument passed, it will calculate the circumference of a unit circle. Otherwise, it will calculate with the provided radius 'r'.
 
-##Function Body
+## Function Body
 Is the set of commands inside the curly braces that run in a predefined manner everytime we call the function.
 
 ```r
@@ -70,7 +70,7 @@ print(calculate_calories_women(60, 165))
 Since one of the parameters has a defined assigned value to it, when we pass two arguments to the function, R interprets the third missing argument should be set to its default value. 
 
 
-###Joining functions
+## Joining functions
 1. Passing the output from calling one function directly to anther
 ```r
 radius_from_diameter <- function(d){
@@ -82,7 +82,7 @@ circumference <- function(r){
 print(circumference(radius_from_diameter(4)))
 ```
 
-##Nested functions
+## Nested functions
 Occurs when we define a new function inside another function. For instance, we can sum up the area of three circles:
 
 ```r
