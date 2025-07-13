@@ -1,15 +1,15 @@
-To visualise data, I'm using the tidyverse extension for R. You must run `library(tidyverse)` each time you want to run the programme.
+# Data Visualization with tidyverse in R
+To visualise data, I'm using the 'tidyverse' extension for R. You must run `library(tidyverse)` each time you want to run the program.
 
-To load starwars dataset:
+## To load starwars dataset:
 ```r
 view(starwars)
 ```
 
-To find the class of the column
+# To find the class of the column
 ```r
 print(class(df$name))
-
-#Specifically for name column
+# Specifically for name column
 print(class(starwars$name))
 ```
 
