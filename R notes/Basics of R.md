@@ -62,11 +62,13 @@ vector1 <- c(1, 2, 3, 4)
 `c()` is used to concatenate values into a vector (numbers, strings) and keeps them separate.
 `paste()` is used to join into a <u> single <u> string.
 
+
 To access elements of a vector:
 If we wanted to access the second element of `vector(1)`,
 ```r
 vector1[2] # returns 2, see above vector
 ```
+
 
 To perform operations on a vector:
 ```r
@@ -74,6 +76,7 @@ sum(vector1) # returns 10
 mean(vector1) # returns 2.5
 paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
 ```
+
 
 **Applications in vectors**
 
