@@ -133,6 +133,7 @@ colSums(matrix1) # returns the sum of each column
 rowMeans(matrix1) # returns the mean of each row
 ```
 
+
 ## Data Frames
 
 Data frames are two-dimensional arrays with named columns, similar to tables in a relational database.
@@ -149,6 +150,7 @@ data.frame1$Name # returns the Name column
 # Perform operations on a data frame
 aggregate(Age ~ Gender, data = data.frame1, mean) # returns the mean Age by Gender
 ```
+
 
 ## Plotting
 
