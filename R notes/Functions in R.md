@@ -12,7 +12,7 @@ function_name <- function(parameters){
 Basically what is used to call the function.
 
 ## Function parameters aka formal arguments
-Are the variables that are placed inside the parentheses, and separated with a comma that will be set to actual values (called arguments).
+Are the variables that are placed inside the parentheses, and separated with a comma that will be set to actual values (called _arguments_).
 For instance,
 
 ```r
@@ -22,7 +22,7 @@ circumference <- function(r){
 }
 print(circumference(2))
 ```
-[1] 12.56637
+**[1] 12.56637**
 
 The parameters can also be set to specific values. Using the same example,
 ```r
@@ -32,9 +32,10 @@ circumference <- function(r=1){
 }
 print(circumference())
 ```
-[1] 6.283185
+**[1] 6.283185**
 
 If we call the function with no argument passed, it will calculate the circumference of a unit circle. Otherwise, it will calculate with the provided radius 'r'.
+
 
 ## Function Body
 Is the set of commands inside the curly braces that run in a predefined manner everytime we call the function.
@@ -46,7 +47,7 @@ sum_two <- function(x,y) {
 }
 print(sum_two(1,2))
 ```
-[1] 3
+**[1] 3**
 
 This allows us to call the function by position by following the same sequence of arguments as in the function.
 i.e. x = 1 and y = 2, and not vice versa.
@@ -105,4 +106,24 @@ print(sum_circle_ares(1, 2, 3))
 Here, we defined `circle_area` function inside the `sum_circle_ares` function. We then called that inner function three times, (r1/2/3) inside the outer function to calculate the area for each circle, before summing them up.
 If we try to call `circle_area` outside of the function, it throws an error because the inner function can only work inside the function it was called.
 
+
+### Calling the function
+To call the function, you cannot simply use `print()`. This will state the function name. Instead, you must key in the function with its arguments (if defined) or its values:
+`annual_growth (pop_y2, pop_y1, year)` for instance. 
+
+```r
+calculate_annual_growth <- function(year_one, year_two, pop_y1, pop_y2, city) {
+  # Formula to calculate the annual growth rate
+  annual_growth <- (((pop_y2 - pop_y1) / pop_y1) * 100) / (year_two - year_one)
+  
+  # Create a message summarizing the results
+  message <- paste("From", year_one, "to", year_two, "the population of", city, "grew by approximately", round(annual_growth, 2), "% each year.")
+  
+  # Print the message
+  print(message)
+  
+  # Return the annual growth value (optional)
+  return(annual_growth)
+}
+```
 
