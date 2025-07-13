@@ -33,7 +33,8 @@ In R, we will often perform tasks based on a condition. We can perform a task by
 - if keyword followed by parentheses `()`, which is followed by a code block, or block statement, indicated by a set of curly braces `[]`
 - inside the parentheses, a condition is provided which is either `TRUE` or `FALSE`
 - if the condition is TRUE, the code inside the curly braces runs; if FALSE, it is not executed.
-
+- the `else` keyword **follows** the code block of an `if` statement, and has code block wrapped by a set of curly braces
+- the code block inside the `else` statement code will execute when the if statement condition evaluates to FALSE.
 
 
 ### Learning how to skip a number in the loop:
