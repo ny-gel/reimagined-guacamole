@@ -53,17 +53,22 @@ It's important that `break` is only used after `cat()` as the program exits the 
   
 ## Vectors
 
-Vectors are one-dimensional arrays of data in R.
+Vectors are one-dimensional arrays of data in R. They are a list-like structure that contain items of the **same data type**.
 
+To create a vector:
 ```r
-# Create a vector
 vector1 <- c(1, 2, 3, 4)
-`c()` # is used to concatenate values into a vector (numbers, strings) and keeps them separate. `paste()` is used to join into a <u> single <u> string.
+```
+`c()` is used to concatenate values into a vector (numbers, strings) and keeps them separate.
+`paste()` is used to join into a <u> single <u> string.
 
-# Access elements of a vector
-vector1[2] # returns 2
+To access elements of a vector:
+```r
+vector1[2] # returns 2, see above vector
+```
 
-# Perform operations on a vector
+To perform operations on a vector:
+```r
 sum(vector1) # returns 10
 mean(vector1) # returns 2.5
 paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
