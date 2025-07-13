@@ -1,0 +1,43 @@
+To visualise data, I'm using the tidyverse extension for R. You must run `library(tidyverse)` each time you want to run the programme.
+
+To load starwars dataset:
+```r
+view(starwars)
+```
+
+To find the class of the column
+```r
+print(class(df$name))
+
+#Specifically for name column
+print(class(starwars$name))
+```
+
+#Filter by height
+```r
+?filter
+filter(starwars, height > 100)
+```
+
+#Defining new variable
+```r
+tall_height <- filter(starwars, height > 100)
+```
+
+#Changing height from metric to imperial
+```r
+imp_height <- mutate(starwars, height = 0.0328084 * height)
+```
+
+#Another way to do it
+```r
+imp_height <- starwars %>%
+  mutate(height = 0.0328084 * height)
+```
+
+#Grouping by variables
+```r
+starwars %>%
+  group_by(eye_color) %>%
+  summarise(mean(mass))
+```
