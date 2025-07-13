@@ -43,7 +43,7 @@ Learning how to break out of a loop:
 ```r
 for (i in 1:5) {
   if (i == 3) {
-    cat("breaking at 3\n")
+    cat("breaking at 3")
     break
   }
 }
