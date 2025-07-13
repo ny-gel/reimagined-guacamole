@@ -8,6 +8,7 @@ To load the `starwars` dataset:
 
 ```r
 view(starwars)
+```
 
 ## Finding the class of a column
 You can use:
