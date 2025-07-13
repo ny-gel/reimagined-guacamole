@@ -27,8 +27,16 @@ a + b
   }
 ```
 
-## For loops
-Learning how to skip a number in the loop:
+## Conditionals
+In R, we will often perform tasks based on a condition. We can perform a task by using an `if` statement. 
+
+- if keyword followed by parentheses `()`, which is followed by a code block, or block statement, indicated by a set of curly braces `[]`
+- inside the parentheses, a condition is provided which is either `TRUE` or `FALSE`
+- if the condition is TRUE, the code inside the curly braces runs; if FALSE, it is not executed.
+
+
+
+### Learning how to skip a number in the loop:
 
 ```r
 for (i in 1:10) {
@@ -39,7 +47,7 @@ for (i in 1:10) {
 }
 ```
 
-Learning how to break out of a loop:
+### Learning how to break out of a loop:
 ```r
 for (i in 1:5) {
   if (i == 3) {
