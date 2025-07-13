@@ -117,7 +117,7 @@ Checking length of a vector:
 `length(vector_name)`
 
 
-### Matrices
+## Matrices
 
 Matrices are two-dimensional arrays of data in R.
 
@@ -133,7 +133,7 @@ colSums(matrix1) # returns the sum of each column
 rowMeans(matrix1) # returns the mean of each row
 ```
 
-### Data Frames
+## Data Frames
 
 Data frames are two-dimensional arrays with named columns, similar to tables in a relational database.
 
@@ -150,7 +150,7 @@ data.frame1$Name # returns the Name column
 aggregate(Age ~ Gender, data = data.frame1, mean) # returns the mean Age by Gender
 ```
 
-### Plotting
+## Plotting
 
 R has a wide range of plotting capabilities, including scatter plots, bar charts, line charts, and more.
 
