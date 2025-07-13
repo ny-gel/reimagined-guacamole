@@ -63,6 +63,7 @@ vector1 <- c(1, 2, 3, 4)
 `paste()` is used to join into a <u> single <u> string.
 
 To access elements of a vector:
+If we wanted to access the second element of `vector(1)`,
 ```r
 vector1[2] # returns 2, see above vector
 ```
@@ -99,6 +100,9 @@ for (name in names) {
   print(name)
 }
 ```
+
+Checking length of a vector:
+`length(vector_name)`
 
 
 ### Matrices
