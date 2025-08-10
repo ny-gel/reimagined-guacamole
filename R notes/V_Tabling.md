@@ -115,6 +115,11 @@ artists <- read_csv('artists.csv')
 select(-genre, -spotify_monthly_listeners, -year_founded)
 ```
 
+In this case, the weather data frame is piped into the select function that would select the first two columns of the weather data frame.
+```r
+weather %>% select(1:2) 
+```
+
 ### Dplyr's filter
 ```r
 # filter rows with or
