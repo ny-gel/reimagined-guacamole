@@ -32,6 +32,7 @@ print(class(starwars$name))
 
 ### By height
 I'll call the individuals above 100cm as `tall`.
+
 ```r
 #Define the new variable
 tall<- filter(starwars, height = >100)
@@ -43,15 +44,9 @@ tall <- starwars %>%
   filter(height = >100)
 ```
 
-### Converting data and the pipe operator
+### Adding a column, and the pipe operator
 Let's try to convert from metric to imperial.
-We will need to define a new variable and use the `mutate` operator.
-
-```r
-imp_height <- mutate(starwars, height = 0.0328084 * height)
-```
-
-A cleaner way to do this is by using the `%>%` pipe operator. Words flow from left to right, so reading it might be simpler.
+We will need to define a new variable and use the `mutate` operator, to add a new column to the data frame.
 
 ```r
 imp_height <- starwars %>%
@@ -91,6 +86,14 @@ artists <- artists %>%
 filter(spotify_monthly_listeners > 20000000, genre !='Hip Hop') %>%
   arrange(desc(youtube_subscribers))
 head(artists) # displays the final data frame
+```
+
+Using the transmute function, which also takes name-value pairs like `mutate()`. `transmute()` however only returns the data frame with only the new columns.
+```r
+# To add `sales_tax` and `profit` columns while dropping all other columns from the data frame:
+df %>%
+  transmute(sales_tax = price * 0.075,
+            profit = price - cost_to_manufacture)
 ```
 
 
@@ -171,3 +174,5 @@ orders %>%
 
 ### Dplyr's rename
 The `rename()` function of dplyr package can be used to change the column names of a data frame. It has a simple syntax where it is necessary to pass the new name followed by the `=` operator and the old name of the column. On the other hand to rename multiple columns based on logical criteria, the `rename()` function has variants such as `rename_if()`, `rename_at()` and `rename_all()`.
+
+
