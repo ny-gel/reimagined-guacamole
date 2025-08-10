@@ -108,6 +108,14 @@ library(dplyr)
 artists <- read_csv('artists.csv')
 ```
 
+### Select function
+```r
+# select columns of data except specified ones
+# Add the - operator before the name of the columns before passing them as arguments to select(). For instance,
+select(-genre, -spotify_monthly_listeners, -year_founded)
+```
+
+### Dplyr's filter
 ```r
 # filter rows with or
 korea_or_before_2000 <- artists %>%
@@ -129,3 +137,6 @@ orders %>%
 1. orders is again piped into filter()
 2. the condition that should not be met is wrapped in parentheses, preceded by !, and given as an argument to filter()
 3. a new data frame is returned containing only rows where shoe_color is not 'red'
+
+### Dplyr's rename
+The `rename()` function of dplyr package can be used to change the column names of a data frame. It has a simple syntax where it is necessary to pass the new name followed by the `=` operator and the old name of the column. On the other hand to rename multiple columns based on logical criteria, the `rename()` function has variants such as `rename_if()`, `rename_at()` and `rename_all()`.
