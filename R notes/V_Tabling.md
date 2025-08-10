@@ -14,6 +14,9 @@ If you are loading data from a csv, load the data frame `df` by
 starwars <- read_csv('starwars.csv')
 ```
 
+### Using csv files
+The first argument of the `read_csv()` is the file to be read. Tibbles in R can be exported to csv files using the `write_csv()` function. The first argument of `write_csv()` is the tibble to be exported.
+
 ## Finding the class of a column
 You can use:
 ```r
