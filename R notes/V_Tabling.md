@@ -3,11 +3,15 @@
 To visualize data, I'm using the `tidyverse` extension for R. You must run `library(tidyverse)` each time you want to run the program.
 
 ## Loading the Starwars Dataset
-
-To load the `starwars` dataset:
+To load the `starwars` dataset, you can use view or load it from the csv.
 
 ```r
 view(starwars)
+```
+
+If you are loading data from a csv, load the data frame `df` by
+```r
+starwars <- read_csv('starwars.csv')
 ```
 
 ## Finding the class of a column
