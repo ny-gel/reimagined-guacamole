@@ -62,43 +62,6 @@ starwars %>%
   summarise(mean(mass))
 ```
 
-Using the dplyr lesson,
- 
-```r
-# filter rows
-popular_not_hip_hop <- chosen_cols %>% 
-  filter(spotify_monthly_listeners > 20000000, genre != 'Hip Hop') 
-head(popular_not_hip_hop)
-```
-
-```r
-# arrange rows
-youtube_desc <- popular_not_hip_hop %>% 
-  arrange(desc(youtube_subscribers))
-youtube_desc
-```
-
-```r
-# select columns, filter and arrange rows
-artists <- artists %>%
-  select(-country,-year_founded,-albums) %>%
-filter(spotify_monthly_listeners > 20000000, genre !='Hip Hop') %>%
-  arrange(desc(youtube_subscribers))
-head(artists) # displays the final data frame
-```
-
-Using the transmute function, which also takes name-value pairs like `mutate()`. `transmute()` however only returns the data frame with only the new columns.
-```r
-# To add `sales_tax` and `profit` columns while dropping all other columns from the data frame:
-df %>%
-  transmute(sales_tax = price * 0.075,
-            profit = price - cost_to_manufacture)
-```
-```r
-# Add breed back into the dogs data frame
-breed = breed
-```
-
 
 ### Removing NA values in summarised values
 1. Converting invalid values into `NA`
@@ -126,9 +89,9 @@ starwars %>%
 This is very useful when you want to clean your data or remove missing values before performing operations like aggregation, summaries, or plotting.
 
 
-## Filtering in dplyr | Filtering Rows with Logic
-From Codecademy 
+## Filtering Rows with Logic From Codecademy 
 
+### Loading data frames
 ```r
 # load libraries
 library(readr)
@@ -141,9 +104,9 @@ artists <- read_csv('artists.csv')
 ```
 
 ### Select function
+To select columns of data except specified ones
 ```r
-# select columns of data except specified ones
-# Add the - operator before the name of the columns before passing them as arguments to select(). For instance,
+# Add the - operator before the name of the columns before passing them as arguments to select().
 select(-genre, -spotify_monthly_listeners, -year_founded)
 ```
 
@@ -152,7 +115,7 @@ In this case, the weather data frame is piped into the select function that woul
 weather %>% select(1:2) 
 ```
 
-### Dplyr's filter
+### Dplyr's filter (or, not)
 ```r
 # filter rows with or
 korea_or_before_2000 <- artists %>%
@@ -176,6 +139,54 @@ orders %>%
 3. a new data frame is returned containing only rows where shoe_color is not 'red'
 
 ### Dplyr's rename
-The `rename()` function of dplyr package can be used to change the column names of a data frame. It has a simple syntax where it is necessary to pass the new name followed by the `=` operator and the old name of the column. On the other hand to rename multiple columns based on logical criteria, the `rename()` function has variants such as `rename_if()`, `rename_at()` and `rename_all()`.
+The `rename()` function of dplyr package can be used to change the column names of a data frame.
+
+```r
+#Renaming convention
+rename(new_col_name = old_col_name)
+```
+
+On the other hand to rename multiple columns based on logical criteria, the `rename()` function has variants such as `rename_if()`, `rename_at()` and `rename_all()`.
 
 
+### Final review
+Using the dplyr lesson,
+ 
+```r
+# filter rows
+popular_not_hip_hop <- chosen_cols %>% 
+  filter(spotify_monthly_listeners > 20000000, genre != 'Hip Hop') 
+head(popular_not_hip_hop)
+```
+
+```r
+# arrange rows
+youtube_desc <- popular_not_hip_hop %>% 
+  arrange(desc(youtube_subscribers))
+head(youtube_desc)
+```
+
+```r
+# select columns, filter and arrange rows
+artists <- artists %>%
+  select(-country,-year_founded,-albums) %>%
+filter(spotify_monthly_listeners > 20000000, genre !='Hip Hop') %>%
+  arrange(desc(youtube_subscribers))
+head(artists) # displays the final data frame
+```
+
+Using the transmute function, which also takes name-value pairs like `mutate()`. `transmute()` however only returns the data frame with only the new columns.
+```r
+# To add `sales_tax` and `profit` columns while dropping all other columns from the data frame:
+df %>%
+  transmute(sales_tax = price * 0.075,
+            profit = price - cost_to_manufacture)
+```
+```r
+# Add breed back into the dogs data frame
+breed = breed
+```
+
+1. We learnt to add new columns to a data frame using mutate()
+2. Add new columns to a data frame and drop existing columns using transmute()
+3. Change the column names of a data frame using rename()
