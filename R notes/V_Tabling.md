@@ -40,7 +40,7 @@ tall <- starwars %>%
   filter(height = >100)
 ```
 
-### Converting data
+### Converting data and the pipe operator
 Let's try to convert from metric to imperial.
 We will need to define a new variable and use the `mutate` operator.
 
