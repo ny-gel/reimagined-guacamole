@@ -53,11 +53,10 @@ imp_height <- starwars %>%
   mutate(height = 0.0328084 * height)
 ```
 
-The `%>%` pipe operator essentially chains the first function to the next. It takes the output of one statement and makes it the input of the next statement. When describing it, you can think of it as a "THEN".
+The `%>%` pipe operator essentially chains the first function to the next. It takes the output of one statement and makes it the input of the next statement. When describing it, you can think of it as a "THEN". A two-step action can then be performed using the pipe operator. 
 
-### Using the pipe operator
-A two-step action can then be performed using the pipe operator. See how we group data by `eye_color` and then calculate the `mean` mass of each group:
 ```r
+# Group data by `eye_color` and then calculate the `mean` mass of each group
 starwars %>%
   group_by(eye_color) %>%
   summarise(mean(mass))
@@ -94,6 +93,10 @@ Using the transmute function, which also takes name-value pairs like `mutate()`.
 df %>%
   transmute(sales_tax = price * 0.075,
             profit = price - cost_to_manufacture)
+```
+```r
+# Add breed back into the dogs data frame
+breed = breed
 ```
 
 
