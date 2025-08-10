@@ -60,13 +60,39 @@ imp_height <- starwars %>%
 
 The `%>%` pipe operator essentially chains the first function to the next. It takes the output of one statement and makes it the input of the next statement. When describing it, you can think of it as a "THEN".
 
-### Performing more actions on grouped data
+### Using the pipe operator
 A two-step action can then be performed using the pipe operator. See how we group data by `eye_color` and then calculate the `mean` mass of each group:
 ```r
 starwars %>%
   group_by(eye_color) %>%
   summarise(mean(mass))
 ```
+
+Using the dplyr lesson,
+ 
+```r
+# filter rows
+popular_not_hip_hop <- chosen_cols %>% 
+  filter(spotify_monthly_listeners > 20000000, genre != 'Hip Hop') 
+head(popular_not_hip_hop)
+```
+
+```r
+# arrange rows
+youtube_desc <- popular_not_hip_hop %>% 
+  arrange(desc(youtube_subscribers))
+youtube_desc
+```
+
+```r
+# select columns, filter and arrange rows
+artists <- artists %>%
+  select(-country,-year_founded,-albums) %>%
+filter(spotify_monthly_listeners > 20000000, genre !='Hip Hop') %>%
+  arrange(desc(youtube_subscribers))
+head(artists) # displays the final data frame
+```
+
 
 ### Removing NA values in summarised values
 1. Converting invalid values into `NA`
