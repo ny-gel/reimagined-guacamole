@@ -30,14 +30,22 @@ I'll call the individuals above 100cm as `tall`.
 tall<- filter(starwars, height = >100)
 ```
 
+Or, consider
+```r
+tall <- starwars %>%
+  filter(height = >100)
+```
+
 ### Converting data
 Let's try to convert from metric to imperial.
 We will need to define a new variable and use the `mutate` operator.
+
 ```r
 imp_height <- mutate(starwars, height = 0.0328084 * height)
 ```
 
 A cleaner way to do this is by using the `%>%` pipe operator. Words flow from left to right, so reading it might be simpler.
+
 ```r
 imp_height <- starwars %>%
   mutate(height = 0.0328084 * height)
@@ -79,4 +87,38 @@ starwars %>%
 This is very useful when you want to clean your data or remove missing values before performing operations like aggregation, summaries, or plotting.
 
 
+## Filtering in dplyr | Filtering Rows with Logic
+From Codecademy 
 
+```r
+# load libraries
+library(readr)
+library(dplyr)
+```
+
+```r
+# load data frame
+artists <- read_csv('artists.csv')
+```
+
+```r
+# filter rows with or
+korea_or_before_2000 <- artists %>%
+  filter(country == 'South Korea' | year_founded < 2000)
+```
+
+```r
+# filter rows with not !
+not_rock_groups <- artists %>%
+  filter (!(genre == 'Rock'))
+```
+For instance: What if you want to find all orders where shoes in any color but red were purchased. Using the not or bang operator (!), 
+
+```r
+orders %>%
+  filter(!(shoe_color == 'red'))
+```
+
+1. orders is again piped into filter()
+2. the condition that should not be met is wrapped in parentheses, preceded by !, and given as an argument to filter()
+3. a new data frame is returned containing only rows where shoe_color is not 'red'
