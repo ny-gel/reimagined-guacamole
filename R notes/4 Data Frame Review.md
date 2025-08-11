@@ -18,18 +18,18 @@ cars
 ```
 
 # Task 3
-```r
 Inspect cars with `head()` and `summary()`.
+```r
 # inspect data
 head(cars)
 summary(cars)
 ```
 
 # Task 4
-```r
 After inspecting the dataframe, you notice something odd about the `normalized_losses` column. This column has a lot of entries that are question marks (?). This variable is not worth looking at since we don’t have all the cars’ expected losses.
 
 Let’s remove this column from the dataset. Select all columns from cars but `normalized_losses`. Save your new dataframe to `cars`.
+```r
 # select columns
 cars <- cars %>%
   select(-normalized_losses)
@@ -76,7 +76,7 @@ mpg_exceeds_threshold
 ```
 
 # Task 10
-Which cars have the highest miles per gallon on the highways? To find this, arrange the rows of `mpg_exceeds_threshold` by `mpg_diff_from_threshold` descending. Save this new dataframe as `mpg_exceeds_threshold`.
+Which cars have the highest miles per gallon on the highways? To find this, `arrange` the rows of `mpg_exceeds_threshold` by `mpg_diff_from_threshold` descending. Save this new dataframe as `mpg_exceeds_threshold`.
 ```r
 # arrange rows
 mpg_exceeds_threshold <- mpg_exceeds_threshold %>%
@@ -85,7 +85,7 @@ mpg_exceeds_threshold
 
 ```
 # Task 11
-Order the rows of cars by `engine_size descendin`g. Save the new data frame to `ordered_by_engine_size`. View `ordered_by_engine_size`.
+Order the rows of cars by `engine_size descending`. Save the new data frame to `ordered_by_engine_size`. View `ordered_by_engine_size`.
 ```r
 # order rows by engine size
 ordered_by_engine_size <- cars %>%
@@ -94,7 +94,7 @@ ordered_by_engine_size
 
 ```
 # Task 12
-Create a variable called chosen_make that contains the `make` you want to check.
+Create a variable called `chosen_make` that contains the `make` you want to check.
 ```r
 # choose make
 chosen_make <- 'bmw'
