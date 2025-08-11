@@ -89,3 +89,24 @@ The `extra ='merge'` argument will ensure that two-word last names & middle name
 students <- students %>%
   separate(full_name,c('first_name', 'last_name'),' ', extra ='merge')
 ```
+
+## String parsing
+Use the `gsub()` function to remove characters, and replace with other characters. Note how `` and "(space)" mean different things - the former means replace with nothing, and the latter means replace with a space.  
+
+In this example, we want to remove the % from the `score` column and convert the current character class into a numerical class.
+
+```r
+# remove % from score column
+students <- students %>%
+  mutate(score=gsub('\\%','',score))
+head(students)
+
+# change score column to numeric
+students <- students %>%
+  mutate(score = as.numeric(score))
+students
+
+# do both steps together
+students <- students %>%
+  mutate(score = as.numeric(gsub('\\%', '', score)))
+```
