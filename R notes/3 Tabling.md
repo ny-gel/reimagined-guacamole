@@ -2,7 +2,7 @@
 
 To visualize data, I'm using the `tidyverse` extension for R. You must run `library(tidyverse)` each time you want to run the program.
 
-## Loading the Starwars Dataset
+### Loading the Starwars Dataset
 To load the `starwars` dataset, you can use view or load it from the csv.
 
 ```r
@@ -19,7 +19,7 @@ The first argument of the `read_csv()` is the file to be read.
 Tibbles in R can be exported to csv files using the `write_csv()` function.   
 The first argument of `write_csv()` is the tibble to be exported.
 
-## Finding the class of a column
+### Finding the class of a column
 Specifically for the `name` column in the `starwars` dataset:
 ```r
 print(class(starwars$name))
@@ -27,20 +27,6 @@ print(class(starwars$name))
 
 More commonly, you will want to obtain the structure of the entire data frame. Instead of printing individual classes of columns, use the `str()` function.
 
-## Filtering data
-
-### By height
-I'll call the individuals above 100cm as `tall`.
-
-```r
-# define the new variable
-# filter sorts rows, select sorts columns
-tall<- filter(starwars, height = >100)
-
-# cleaner way to do it
-tall <- starwars %>%
-  filter(height = >100)
-```
 
 ### Adding a column using `mutate()`, and the pipe operator `%>%`
 Let's try to convert from metric to imperial.  
@@ -53,7 +39,7 @@ imp_height <- starwars %>%
 
 `%>%` essentially chains the first function to the next; It takes the output of one statement and makes it the input of the next statement, allowing for two-step actions to be performed. You can think of it as a "THEN".  
 
-**Calculating mean of a column**  
+### Calculating mean of a column 
 The general code for obtaining `mean` of column with dplyr:
 ```r
 df %>%
@@ -66,8 +52,6 @@ starwars %>%
   group_by(eye_color) %>%
   summarise(mean(mass))
 ```
-
-
 
 
 ### Removing NA values in summarised values  
@@ -110,8 +94,22 @@ library(dplyr)
 artists <- read_csv('artists.csv')
 ```
 
-### Select function for columns
-Allows us to select columns of data except specified ones  
+### Filter function by rows
+Say I want to filter data within the `df` by **height**.  
+I'll call the individuals above 100cm as `tall`.
+
+```r
+# define the new variable
+# filter sorts rows, select sorts columns
+tall<- filter(starwars, height = >100)
+
+# cleaner way to do it
+tall <- starwars %>%
+  filter(height = >100)
+```
+
+### Select function by columns
+Allows us to select columns of data except specified ones.    
 ```r
 # Add the - operator before the name of the columns before passing them as arguments to select().
 select(-genre, -spotify_monthly_listeners, -year_founded)
