@@ -1,7 +1,7 @@
 You’ve seen most of the functions we often use to diagnose a dataset for cleaning. Some of the most useful ones are:
 
-`head()` — display the first 6 rows of the table
-`summary()` — display the summary statistics of the table
+`head()` — display the first 6 rows of the table  
+`summary()` — display the summary statistics of the table  
 `colnames()` — display the column names of the table
 
 ## Data transformation
