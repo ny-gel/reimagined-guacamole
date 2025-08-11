@@ -39,45 +39,6 @@ imp_height <- starwars %>%
 
 `%>%` essentially chains the first function to the next; It takes the output of one statement and makes it the input of the next statement, allowing for two-step actions to be performed. You can think of it as a "THEN".  
 
-### Calculating mean of a column 
-The general code for obtaining `mean` of column with dplyr:
-```r
-df %>%
-  summarise(mean_col = mean(column_name))
-```
-
-```r
-# Group data by `eye_color` and then calculate the `mean` mass of each group
-starwars %>%
-  group_by(eye_color) %>%
-  summarise(mean(mass))
-```
-
-
-### Removing NA values in summarised values  
-1. Converting invalid values into `NA`  
-2. Filter out `NA` values  
-
-`is.na(x)` function checks if any of the elements of (x) are `NA`.  
-`is.na(x)` returns a logical vector of the same length of (x), where each element is `TRUE` if the corresponding element in (x) is `NA` and `FALSE` if there is a numerical number.
-
-For instance:
-```r
-x <- c(1, 2, NA, 3, NA)
-is.na(x) 
-[1] FALSE, FALSE, TRUE, FALSE, TRUE
-```
-This means that the **3rd and 5th elements** in the vector are `NA`.
-
-`!is.na(x)` is the logical negation operator. It reverses (negates) the logical values.  
-When applied to the above example, the 3rd and 5th elements become `FALSE` when they are `NA`.  
-In the `starwars` data set, using `!is.na(x)` will select the values that is NOT `NA` / have a numerical number.  
-
-```r
-starwars %>%
-  filter(!is.na(mass))
-```
-This is very useful when you want to clean your data or remove missing values before performing operations like aggregation, summaries, or plotting. **For duplicates, see (5) Data cleaning.**
 
 
 ## Filtering Rows with Logic From Codecademy 
