@@ -83,7 +83,7 @@ vector1[2] # returns 2, see above vector
 * `sum()`
 * `mean()`
 * `paste()`
-* 
+  
 ```r
 sum(vector1) # returns 10
 mean(vector1) # returns 2.5
