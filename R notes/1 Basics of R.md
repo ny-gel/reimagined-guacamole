@@ -69,6 +69,16 @@ Vectors are one-dimensional arrays of data in R. They are a list-like structure 
 vector1 <- c(1, 2, 3, 4)
 ```
 `c()` is used to concatenate values into a vector (numbers, strings) and keeps them separate.
+* Before conducting `sum()`, `median()`, you must use `c()` to indicate that the values are within the same vector.  
+
+For example, 
+```r
+dataset_one <- c(-20, -3, 2, 4, 4, 10, 50)
+dataset_one_q1 <- median(c(-20, (-3), 2) # to find Q1
+# faster way
+dataset_one_q1 <- quantile(dataset_one, 0.25)
+```
+
 `paste()` is used to join into a <u> single <u> string.
 
 
