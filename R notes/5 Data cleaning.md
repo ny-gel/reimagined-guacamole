@@ -66,13 +66,17 @@ df %>%
   select(-birthday)
 
 ```
-The first command takes the characters starting at index 1 and ending at index 2 of each value in the birthday column and puts it into a month column.  
-The second command takes the characters starting at index 3 and ending at index 4 of each value in the birthday column and puts it into a day column.  
-The third command takes the characters starting at index 5 and ending at the end of the value in the birthday column and puts it into a year column.  
+* first command takes the characters starting at index 1 and ending at index 2 of each value in the birthday column -> month column.  
+* second command takes the characters starting at index 3 and ending at index 4 of each value in the birthday column -> day column.  
+* third command takes the characters starting at index 5 and ending at the end of the value in the birthday column -> year column.  
 
-**When characters are not constant**
-e.g. `user_US` and `admin_Kenya`, we know we want to split across `_`, so use `separate()` function.
-
+**When characters are not constant**  
+ The general formula for the `separate()` function is:
+```r
+df %>%
+  separate(column_to_split, c('new_col1', 'new_col2', 'new_col3'), 'separator')
+```  
+e.g. `user_US` and `admin_Kenya`, we know we want to split across `_`, 
 ```r
 # Create the 'user_type' and 'country' columns
 df %>%
@@ -93,7 +97,16 @@ students <- students %>%
 ## String parsing
 Use the `gsub()` function to remove characters, and replace with other characters. Note how `` and "(space)" mean different things - the former means replace with nothing, and the latter means replace with a space.  
 
-In this example, we want to remove the % from the `score` column and convert the current character class into a numerical class.
+The general formula is:
+```r
+gsub(pattern, replacement, x)
+```
+* `pattern` = what you want to find/replace
+* `replacement` = what you want to replace it with
+* `x` = the text/vector where you're making changes  
+
+
+In this example, we want to remove the % from the pre-existing `score` column and convert the  character class -> numerical class with `as.numeric()`.
 
 ```r
 # remove % from score column
