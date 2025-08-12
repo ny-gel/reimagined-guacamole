@@ -83,11 +83,14 @@ vector1[2] # returns 2, see above vector
 * `sum()`
 * `mean()`
 * `paste()`
+* `sort()`
   
 ```r
 sum(vector1) # returns 10
 mean(vector1) # returns 2.5
 paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
+sort(vector1) # ascending
+sort(vector1, descending = TRUE) # descending
 ```
 
 **Sum values in a vector:**
