@@ -2,7 +2,11 @@
 Using the `inner_join()` function, it:
 *  looks for columns that are common between two data frames
 *  and then looks for rows where those columns’ values are the same
-*  It then **combines the matching rows** into a single row in a new table.
+*  then **combines the matching rows** into a single row in a new table  
+
+What `inner_join()` **keeps**:
+* **All columns** from both data frames (with suffixes if there are name conflicts)
+* **All `NA` values** in any column, as long as the row has a matching join key  
 
 With the data frames `orders`, `customers` and `products`:
 ```r
@@ -21,12 +25,45 @@ inner_join(orders, customers) # both dfs to be added, as customers was piped int
 ```
 
 ## Joining specific columns
-**Specifying join condition with `by`:** matches `id` column from `df_1` with `other_id` column from `df_2`  
+**Specifying join condition with `by`:** matches `id` column from `df_1` with `other_id` column from `df_2`. 
+
+The general formula would look like:
 ```r
 joined_dfs <- df_1 %>%
   inner_join(df_2,
              by = c('id' = 'other_id'))
 ```
+
+Using a specific example, 
+```markdown
+**DF1:**
+| id | name | age |
+|----|------|-----|
+| 1  | John | 20  |
+| 2  | Jane | 25  |
+
+**DF2:**
+| student_id | grade |
+|------------|-------|
+| 1          | A     |
+| 2          | B     |
+```
+
+In this example, 
+```r
+students %>%
+  inner_join(grades, by = c("id" = "student_id"))
+```
+
+### Output
+```markdown
+| id | name | age | grade |
+|----|------|-----|-------|
+| 1  | John | 20  | A     |
+| 2  | Jane | NA  | B     |
+# Bob is removed (no matching grade)
+```
+
 **Handling name conflicts with `suffix` :**  
 Another example:
 
