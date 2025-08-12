@@ -37,6 +37,11 @@ imp_height <- starwars %>%
   mutate(height = 0.0328084 * height)
 ```
 
+The general formula for `mutate()` is:
+```r
+mutate(existing_dataframe, new_column = calculation) # when pipe not used
+```
+
 `%>%` essentially chains the first function to the next; It takes the output of one statement and makes it the input of the next statement, allowing for two-step actions to be performed. You can think of it as a "THEN".  
 
 
