@@ -27,7 +27,7 @@ a + b
   }
 ```
 
-## Conditionals
+## Conditionals - `for`, `if`, `else`
 In R, we will often perform tasks based on a condition. We can perform a task by using an `if` statement. 
 
 - if keyword followed by parentheses `()`, which is followed by a code block, or block statement, indicated by a set of curly braces `[]`
@@ -37,7 +37,7 @@ In R, we will often perform tasks based on a condition. We can perform a task by
 - the code block inside the `else` statement code will execute when the if statement condition evaluates to FALSE.
 
 
-### Learning how to skip a number in the loop:
+### Skip loops
 
 ```r
 for (i in 1:10) {
@@ -48,7 +48,7 @@ for (i in 1:10) {
 }
 ```
 
-### Learning how to break out of a loop:
+### Break loops
 ```r
 for (i in 1:5) {
   if (i == 3) {
@@ -64,7 +64,7 @@ It's important that `break` is only used after `cat()` as the program exits the 
 
 Vectors are one-dimensional arrays of data in R. They are a list-like structure that contain items of the **same data type**.
 
-To create a vector:
+### Creating a vector:
 ```r
 vector1 <- c(1, 2, 3, 4)
 ```
@@ -72,24 +72,25 @@ vector1 <- c(1, 2, 3, 4)
 `paste()` is used to join into a <u> single <u> string.
 
 
-To access elements of a vector:
+### Accessing elements of a vector:
 If we wanted to access the second element of `vector(1)`,
 ```r
 vector1[2] # returns 2, see above vector
 ```
 
 
-To perform operations on a vector:
+### Operations for vectors
+* `sum()`
+* `mean()`
+* `paste()`
+* 
 ```r
 sum(vector1) # returns 10
 mean(vector1) # returns 2.5
 paste ("Hello", vector1) # returns Hello 1, Hello 2, etc.
 ```
 
-
-**Applications in vectors**
-
-Sum values in a vector:
+**Sum values in a vector:**
 ```r
 x <- c(5, 8, 12, 105, 7)
 total <- 0
@@ -102,7 +103,7 @@ for (val in x) {
 }
 ```
 
-Skipping missing values in a vector:
+**Skipping missing values in a vector:**
 ```r
 names <- c("John", "Jane", NA, "Doe", "Alice", NA)
 for (name in names) {
@@ -113,7 +114,7 @@ for (name in names) {
 }
 ```
 
-Checking length of a vector:
+**Checking length of a vector:**
 `length(vector_name)`
 
 
@@ -122,13 +123,8 @@ Checking length of a vector:
 Matrices are two-dimensional arrays of data in R.
 
 ```r
-# Create a matrix
-matrix1 <- matrix(1:6, ncol = 2)
-
-# Access elements of a matrix
-matrix1[2, 2] # returns 4
-
-# Perform operations on a matrix
+matrix1 <- matrix(1:6, ncol = 2) # Create a matrix
+matrix1[2, 2] # returns 4, access element
 colSums(matrix1) # returns the sum of each column
 rowMeans(matrix1) # returns the mean of each row
 ```
@@ -151,19 +147,4 @@ data.frame1$Name # returns the Name column
 aggregate(Age ~ Gender, data = data.frame1, mean) # returns the mean Age by Gender
 ```
 
-
-## Plotting
-
-R has a wide range of plotting capabilities, including scatter plots, bar charts, line charts, and more.
-
-```r
-# Scatter plot
-plot(data.frame1$Age, data.frame1$Gender)
-
-# Bar chart
-barplot(table(data.frame1$Gender))
-
-# Line chart
-lines(data.frame1$Age, data.frame1$Gender)
-```
 
