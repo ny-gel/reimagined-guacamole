@@ -41,6 +41,15 @@ inventory %>%
 # 5.465595
 ```
 
+Example: Consider a data frame `inventory` for an athletics store with columns `product` and `price`. product contains the names of different athletic equipment the store has in `inventory` and `price` gives the prices of the equipment.
+```r
+inventory %>%
+summarize (mean_price = mean(price))
+```
+
+Explanation: To compute the average price using a data frame in R, the correct approach is to summarize the data after calling the necessary function to calculate the mean price. The summarize function is essential here because it allows the aggregation of data along with the mean function to compute the average price of the price column across all products in the inventory.
+
+
 To determine the average price of goods sold:
 ```
 # in context of average price
@@ -61,6 +70,15 @@ average_price <- orders %>%
 * `sum()`
 
 
+## n_distinct() for unique values
+You are working for an online retailer of mechanical keyboards and have access to the `customer_purchases` data frame. In this data frame there is a row for each purchase a customer has made on the site. If the customers’ names are stored in a column called `name`, what command would you use to determine how many unique customers purchased something from the site?
+
+```r
+customers %>%
+summarize (number_of_unique_customers = n_distinct(name))
+```
+Explanation: The function `n_distinct` is specifically designed to count the number of unique values in a vector or column within a data frame. While `distinct` also refers to unique values, it **does not directly provide a count**, making `n_distinct` the appropriate function for this task.
+
 ## group_by() for aggregates
 Suppose we have a grade book with columns `student`, `assignment_name`, and `grade`  
 And we want to get an average grade for each student. What we can use is the group_by() function.
@@ -75,6 +93,17 @@ grades <- df %>%
   summarize(mean_grade = mean(grade))
 
 ```
+
+The City Library has several branches throughout the area. They collect all of their book checkout data in a data frame called `checkouts`. The data frame contains the columns `location`, `date`, and `book_title`. If we want to compare the total number of books checked out at each branch, what code could we use?  
+
+```r
+checkouts %>%
+  group_by
+(location) %>%
+  
+summarize(count = n())
+```
+Explanation: To compare the total number of books checked out at each branch, you need to first group the data by the specific column representing each branch’s location, which allows you to aggregate the data accordingly. Following the grouping, summarizing with a count function effectively tallies the number of checkouts for each branch, yielding the desired comparison.  
 
 
 ## Combining grouping with filter
