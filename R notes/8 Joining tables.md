@@ -36,13 +36,13 @@ joined_dfs <- df_1 %>%
 
 Using a specific example, 
 ```markdown
-**DF1:**
+**DF1:** students
 | id | name | age |
 |----|------|-----|
 | 1  | John | 20  |
 | 2  | Jane | 25  |
 
-**DF2:**
+**DF2:** grades
 | student_id | grade |
 |------------|-------|
 | 1          | A     |
@@ -51,7 +51,7 @@ Using a specific example,
 
 In this example, 
 ```r
-students %>%
+joined_dfs <- students %>%
   inner_join(grades, by = c("id" = "student_id"))
 ```
 
