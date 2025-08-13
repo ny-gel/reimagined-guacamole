@@ -211,3 +211,27 @@ diff_from_mean <- orders %>%
   mutate(diff_from_shoe_type_mean = price - mean(price, na.rm = TRUE))
 diff_from_mean
 ```
+
+
+## Task 9
+The column `experimental_group` tells us whether the user was shown ad A or ad B. Were approximately the same number of people shown both ads? Group `ad_clicks` by experimental_group and count the rows, saving your result to experiment_split. View `experiment_split` to see how users were split across the experiment groups!
+
+```r
+# define experiment_split here:
+experiment_split <- ad_clicks %>%
+  group_by(experimental_group) %>%
+  summarize(count = n()) # Replace the _____ with n() to count the number of rows in each grouping.
+experiment_split
+```
+
+Similarly, we want to know the percentage of people who clicked on ads from each `utm_source`. Let’s start by finding the number of clicks per `utm_source`.
+
+Group `ad_clicks` by `utm_source` and `ad_clicked` and count the number of rows in each group, naming the resulting column count. Save your answer to the variable `clicks_by_utm`, and view it.
+
+```r
+# define clicks_by_utm here:
+clicks_by_utm <- ad_clicks %>%
+  group_by(utm_source, ad_clicked)%>%
+  summarize(count = n())
+clicks_by_utm
+```
