@@ -1,3 +1,41 @@
+## Mean, Median, Mode
+* `median`: In R, the `median` of a vector is calculated using the median() function. The function accepts a vector as an input.
+```r
+a <- c(3,4,5,12)
+median(a) # find median
+```
+* `Mode`: In R, the `mode` of a vector can be calculated using the Mode() function in the DescTools package. The function accepts a vector as an input and returns the most frequently occurring observation in the dataset.
+```r
+library(DescTools)
+example_data <- c(24, 16, 12, 10, 12, 28, 38, 12, 28, 24)
+example_mode <- Mode(example_data) # find Mode
+```
+
+* `mean`: In R, the mean of a vector is calculated using the mean() function. The function accepts a vector as input, and returns the average as a numeric.
+
+## Quartiles, Quantiles and IQR
+* Quantiles are the set of values/points that divides the dataset into groups of equal size.
+* Quartiles are the three dividing points (or quantiles) that split data into four equally sized groups are called quartiles.
+
+```r
+x <- c(-10, 30, 4, 5, 10, -20)
+
+# Quartiles
+quartiles <- quantile(x, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+Q1 <- quartiles[1]   # first quartile
+Q2 <- quartiles[2]   # median
+Q3 <- quartiles[3]   # third quartile
+
+# Interquartile Range
+iqr_value <- IQR(x, na.rm = TRUE)
+
+Q1
+Q2
+Q3
+iqr_value
+```
+
+
 ### Explore the 1985 Cars Dataset
 Luckily for you, we have a dataset that stores precisely that information. This dataset comes from the UCI Machine Learning Repository and is linked here. This dataset has been adapted so that the variable names are along the first rows.
 
