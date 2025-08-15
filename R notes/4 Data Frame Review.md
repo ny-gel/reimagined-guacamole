@@ -18,10 +18,10 @@ example_mode <- Mode(example_data) # find Mode
 * Quartiles are the three dividing points (or quantiles) that split data into four equally sized groups are called quartiles.
 
 ```r
-x <- c(-10, 30, 4, 5, 10, -20)
+vector_name <- c(-10, 30, 4, 5, 10, -20)
 
 # Quartiles
-quartiles <- quantile(x, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+quartiles <- quantile(vector_name,c(0.25, 0.5, 0.75), na.rm = TRUE)
 Q1 <- quartiles[1]   # first quartile
 Q2 <- quartiles[2]   # median
 Q3 <- quartiles[3]   # third quartile
