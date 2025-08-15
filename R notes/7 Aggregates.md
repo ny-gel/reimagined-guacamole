@@ -109,6 +109,11 @@ Rather than filtering rows by the individual column values, the rows will be fil
 enrollments %>%
   group_by(course) %>%
   filter(mean(quiz_score) < 80)
+
+# with .by
+enrollments %>%
+  filter(mean(quiz_score) < 80, .by = course)
+
 ```
 The average `quiz_score` for the `learn-python` course is 75, so all the rows of enrollments with a value of `learn-python` in the course column remain - even if their individual column data might exceed 80.
 
