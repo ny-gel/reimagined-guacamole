@@ -59,6 +59,8 @@ labs(title="Movie Ratings Vs Award Wins", subtitle ="From IMDB dataset",x="Movie
 # Adds labels
 ```
 
+Note that to change the axis titles, you must add them **within** `labs()`. The `aes()` function is for mapping your data columns to the axes, not for changing the display labels. You use `aes(x=column1, y=column2)` to tell ggplot which data to plot.
+
 ## The bar chart
 Best used for visualisation of categorical data.
 
