@@ -13,6 +13,7 @@ Propensity scores summarize multiple covariates into a single score, which can t
 - Covariate adjustment in regression models
 - Following this, it is crucial to assess **balance** between the treatment & control groups.
 
+
 Because this probability (propensity score) corresponds to a binary outcome—either being in the treatment group or the control group—we can model the propensity scores using **logistic regression.**
 
 ### Assessing balance
