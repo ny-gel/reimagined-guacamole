@@ -15,7 +15,7 @@ viz # renders plot
 
 * The ggplot object or canvas was initialized with the data frame `sales` assigned to it
 * The subsequent `geom_point` layer used the `cost` and `profit` columns to define the scales of the axes for that particular geom. Notice that it simply referred to those columns with their column names.
-* We state the variable name of the visualization ggplot object so we can see the plot.
+* We **state the variable name at the end** so we can see the plot.
 
 ## Adding geoms
 
