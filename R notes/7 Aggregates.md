@@ -4,11 +4,12 @@ Using dplyr's `summarize()`, you can combine all values from a column into a sin
 The **general syntax** for `summarize()` is
 ```r
 df %>%
-  summarize(var_name = command(column_name))
+  summarize(.data = command(column_name),.by = col_name)
 ```
-* `var_name` is the name you assign to the column that stores the results of the summary function in the returned data frame
+* `.data` is the name you assign to the column that stores the results of the summary function in the "new"/returned data frame
 * `command` is the summary function that is applied to the column by summarize()
-* `column_name` is the pre-existing name of the column of df that is being summarized
+* `column_name` is the pre-existing name of the column of df that is being summarized  
+* `col_name` is the name of column which you want to group results by
 
 
 For instance, finding the `median` `age` of `customers`:
@@ -58,16 +59,14 @@ average_price <- orders %>%
 ```
 
 ### Commands
-* `mean()` Average of all values in column
-* `median()` Median value in column
-* `sd()` Standard deviation of values in column
-* `var()`
-* `min()`
-* `max()`
-* `IQR()`
-* `n_distinct()` Number of unique values in column
-* `n` Count of rows within a group - does not require column as an argument
-* `sum()`
+* Center: `mean()`, `median()`
+* Spread: `sd()`, `IQR()`,`mad()`
+* Range: `min()`, `max()`,
+* Position: `first()`, `last()`, `nth()`,
+* Logical: `any()`, `all()`
+* Count: `n()`, `n_distinct()` # n returns count of rows within group; n_distinct is no of unique values within column
+
+
 
 
 ## n_distinct() for unique values
@@ -97,11 +96,9 @@ grades <- df %>%
 The City Library has several branches throughout the area. They collect all of their book checkout data in a data frame called `checkouts`. The data frame contains the columns `location`, `date`, and `book_title`. If we want to compare the total number of books checked out at each branch, what code could we use?  
 
 ```r
-checkouts %>%
-  group_by
-(location) %>%
-  
-summarize(count = n())
+books_checked_out <- checkouts %>%
+  group_by (location)%>%
+  summarize(count = n())
 ```
 Explanation: To compare the total number of books checked out at each branch, you need to first group the data by the specific column representing each branch’s location, which allows you to aggregate the data accordingly. Following the grouping, summarizing with a count function effectively tallies the number of checkouts for each branch, yielding the desired comparison.  
 
@@ -119,11 +116,26 @@ The average `quiz_score` for the `learn-python` course is 75, so all the rows of
 ## Combining grouping with mutate
 `group_by()` can also be used with the dplyr function `mutate()` to add columns to a data frame that involve per-group metrics.
 You want to add a new column to the data frame that stores the difference between a row’s `quiz_score` and the average `quiz_score` for that row’s `course`. To add the column:
+
+### 1️⃣ Using `group_by()`
 ```r
 enrollments %>% 
   group_by(course) %>% 
   mutate(diff_from_course_mean = quiz_score - mean(quiz_score))
 ```
+* Groups the data by course.
+* Calculates the mean within each group.
+* ungroup() is optional but recommended to avoid accidental grouped operations later.
+
+### 2️⃣ Using .by (dplyr ≥ 1.1.0)
+Another way to do this is:
+```r
+enrollments %>%
+  mutate(diff_from_course_mean = quiz_score - mean(quiz_score), .by = course)
+```
+* No need to explicitly group_by().
+* .by = course performs the calculation within each course.
+* The resulting data is not grouped; .by just scopes the calculation
 
 ## Task 1
 Our finance department wants to know the price of the most expensive pair of shoes purchased. Save your answer to the variable `most_expensive`.
