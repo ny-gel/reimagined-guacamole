@@ -5,8 +5,12 @@ This requires three fundamental assumptions to be done:
 * **Overlap**: States that for the included covariates, all subgroups of individuals have some probability of getting either treatment assignment.
 
 ## Propensity scores
-Propensity scores are the **conditional probability of receiving a treatment** given a set of **observed** baseline covariates. It aims to reduce confounding bias in observational studies, allowing treated and untreated groups to be compared more fairly.  
-Propensity scores summarize multiple covariates into a single score, which can then be used for:
+Propensity scores are the **conditional probability of receiving a treatment** given a set of **observed** baseline covariates. 
+
+```r
+e(x)=P(Z=1∣X=x), where Z is the treatment status 
+```
+It aims to reduce confounding bias in observational studies, allowing treated and untreated groups to be compared more fairly. Propensity scores summarize multiple covariates into a single score, which can then be used for:
 - Matching (pairing treated and untreated individuals with similar scores)
 - Stratification (dividing subjects into strata based on their score)
 - **Weighting** (e.g., inverse probability of treatment weighting, IPTW) -> shows strong perf  
