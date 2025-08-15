@@ -16,6 +16,8 @@ Propensity scores summarize multiple covariates into a single score, which can t
 Because this probability (propensity score) corresponds to a binary outcome—either being in the treatment group or the control group—we can model the propensity scores using **logistic regression.**
 
 ### Assessing balance
+Balance describes how similar the distribution of a variable is between treatment and control groups.	
+
 **1. Visual assessments**  
 Plotting a balance plot `bal.plot()`.  
 
@@ -126,3 +128,42 @@ ps_love <- love.plot(
 ### Refining propensity score models
 As you may have noticed, propensity score methods are an iterative process: we check variable balance, model propensity scores, perform weighting, then check balance again. If imbalance still exists, we can change the propensity score model. Note that it can take multiple tries to find a good propensity score model. 
 - Recall that successful weighting occurs when both SMDs fall between -0.1 and 0.1 (adjusted), which is seen visually with `love.plot()`.
+
+### Estimating causal treatment effect
+Now that we have a good balance, we can proceed to the last step of a propensity score analysis: estimating the causal treatment effect by **fitting a regression model** for the outcome variable, and incorporate the score weights from the `weightit` model with the `glm()` function.
+
+```r
+# Creating an outcome model
+outcome_mod_weight <- glm(
+  outcome_var ~ treatment_group_variable + other_var1 + other_var2, #outcome model
+  data = dataset, #dataset 
+  weights = iptw_$weights #IPTW weights
+)
+```
+
+To find the estimated treatment effect, use the `coeftest()` function.
+* Weighting can cause standard errors to become inaccurate
+* To get the best estimate of the treatment effect, we need a more robust calculation of the standard errors, so we add the argument `vcov. = vcovHC`	
+
+**Task**
+	
+A `weightit` model using the `los_data` dataset has been created for you in notebook.Rmd and saved as `iptw_ef2`.
+
+Fit a regression model with length of hospital stay as the outcome and age, cholesterol level, and heart attack history as predictors. Use the IPTW weights from `iptw_ef2`. Save your model as `outcome_mod`.
+
+```r
+# Create outcome model
+outcome_mod <- glm(
+  hospital_los ~ low_ef + age + cholesterol + heart_attack,
+  data = los_data,
+  weights = iptw_ef2$weights
+)
+```
+
+Use the `coeftest()` function to estimate the treatment effect from the model you just fit and assign the result to `att_robust`. Be sure to use robust standard error estimates.
+```r
+# Get coefficients with robust standard errors
+att_robust <- coeftest(
+  outcome_mod,
+  vcov. = vcovHC
+```
