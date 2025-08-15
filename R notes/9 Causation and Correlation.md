@@ -88,6 +88,7 @@ Control Weight	1/(1-p)	p/(1-p)
 ```
 - By giving **MORE** weight to individuals who look like those in the opposite treatment assignment => low propensity score, 0.1, for treated individual (looks more like control) has HIGH weight of 10 => they are better counterfactuals for individuals in the other treatment group
 - By giving **LESS** weight to individuals who look like those in their own treatment assignment => high propensity score, 0.9, for treated individual (looks like other treated individuals) has LOW weight of 1.1
+- Essentially, low score (treatment group) -> more like control group + high score (control group) -> more like treatment group => get higher weightage
 
 ### Re-checking overlap and balance
 If propensity score weighting is successful, we expect the distribution of propensity scores in the treatment group to be similar to that of the control group - we can use the `bal.plot()` function -> shows distribution of scores.    
