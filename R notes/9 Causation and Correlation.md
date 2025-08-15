@@ -130,7 +130,8 @@ ps_love <- love.plot(
 As you may have noticed, propensity score methods are an iterative process: we check variable balance, model propensity scores, perform weighting, then check balance again. If imbalance still exists, we can change the propensity score model. Note that it can take multiple tries to find a good propensity score model. 
 - Recall that successful weighting occurs when both SMDs fall between -0.1 and 0.1 (adjusted), which is seen visually with `love.plot()`.
 
-### Estimating causal treatment effect
+
+### Estimating causal treatment effect with regression models (Final step)
 Now that we have a good balance, we can proceed to the last step of a propensity score analysis: estimating the causal treatment effect by **fitting a regression model** for the outcome variable, and incorporate the score weights from the `weightit` model with the `glm()` function.
 
 ```r
