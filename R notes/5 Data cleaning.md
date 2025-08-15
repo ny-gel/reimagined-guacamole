@@ -123,3 +123,17 @@ students
 students <- students %>%
   mutate(score = as.numeric(gsub('\\%', '', score)))
 ```
+
+## Isolating columns in a data frame
+To normally get a single column from a data frame using `dplyr`, use this syntax:
+```r
+single_column <- df %>%
+  select(col_name)
+```
+
+However, many of Rs statistical functions require a **numeric vector** instead of a df column. We therefore need to convert the column into a numerical vector. Thus, we will use this syntax instead:
+
+```r
+single_column <- df %>%
+  pull(col_name)
+```
