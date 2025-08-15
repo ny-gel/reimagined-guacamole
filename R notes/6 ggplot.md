@@ -94,3 +94,22 @@ hist <- qplot(songs,
                             labels =c("Chicago"),
                             values=c("blue"))
 ```
+
+### Plotting on the histogram
+1. Filter before pulling
+- `filter()` works **only on data frames/tibbles**.  
+- `pull()` extracts a **single column** as a **vector** (numeric, character, etc.).  
+- If you `pull()` first, the object becomes a vector, and **`filter()` will no longer work**, resulting in an error.  
+- ✅ **Best practice:** Always `filter()` rows **first**, then `pull()` the column if you want a vector.
+
+```r
+# Correct example
+low_gdp <- data %>%
+  filter(GDP <= median_gdp) %>%  # filter on tibble
+  pull(life_expectancy)           # extract numeric vector
+```
+
+2. Filtering columns in a data frame produces a tibble
+- When you filter rows on a data frame, the result is still a tibble/data frame, even if only one column is selected.	
+- You can then perform further data-frame operations such as `filter()`, `mutate()`, or `summarise()` on it.	
+- Use `pull()` only when you specifically need a vector, e.g., for `hist()` or `mean()`.	
