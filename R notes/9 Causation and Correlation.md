@@ -70,7 +70,12 @@ ef_model <- glm(
 ### Weighting propensity scores
 Propensity score weighting transforms estimated propensity scores into weights that emphasize or diminish certain observations in our dataset. A form of this is known as inverse probability of treatment weighting (IPTW).
 
-IPTW weights are calculated differently depending on whether we want to estimate the average treatment effect (ATE) or the average treatment effect on the treated (ATT). Note that with ATE we are looking at the effect across the entire population, both the treated and control groups. ATT is just on the treated group.
+IPTW weights are calculated differently depending on whether we want to estimate the average treatment effect (ATE) or the average treatment effect on the treated (ATT). 
+* **ATE** looks at the effect across the entire population (both treated and control groups).
+  > _"What would be the effect if everyone in the population got treated vs if everyone got control?"_ 
+* **ATT** is just on the treated group.
+  >_"For people who actually received treatment, what would their outcomes be if they hadn’t been treated?"_
+  > Therefore, the **treated** group remains as-is (weight = 1) while the **control group** is reshaped with weight, so their covariates match the treated group's.
 
 ```r
 	                ATE	  ATT
