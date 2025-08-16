@@ -115,3 +115,11 @@ low_gdp <- data %>%
 - When you filter rows on a data frame, the result is still a tibble/data frame, even if only one column is selected.	
 - You can then perform further data-frame operations such as `filter()`, `mutate()`, or `summarise()` on it.	
 - Use `pull()` only when you specifically need a vector, e.g., for `hist()` or `mean()`.	
+
+### Plotting a box plot
+To plot the distribution of a single variable, like `clicks` in the `conversion` dataframe, we pass in the same variable for both x and y in the call to `geom`:
+```r
+plot <- conversion %>%
+  ggplot(aes(clicks, clicks)) +
+  geom_boxplot()
+```
