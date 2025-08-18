@@ -2,7 +2,7 @@
 It’s important to understand that any arguments defined inside `ggplot()` will also be inherited by other layers, including aesthetics.
 
 ## Data association
-* Data is bound to a ggplot2 visualization by passing a data frame as the first argument in the `ggplot()` function call. You can include the named argument like `ggplot(data=df_variable)` or simply pass in the data frame like `ggplot(data frame)`.
+* Data is bound to a `ggplot2` visualization by passing a **df as the first argument** in the `ggplot()` function call. You can include the named argument like `ggplot(data=df_variable)` or simply pass in the data frame like `ggplot(data frame)`.
 * Because the data is bound at this step, this means that the rest of our layers, which are function calls we add with a `+` (plus sign), all have access to the data frame.
 
 
@@ -117,9 +117,16 @@ low_gdp <- data %>%
 - Use `pull()` only when you specifically need a vector, e.g., for `hist()` or `mean()`.	
 
 ### Plotting a box plot
-To plot the distribution of a single variable, like `clicks` in the `conversion` dataframe, we pass in the same variable for both x and y in the call to `geom`:
+To plot the distribution of a single variable, like `clicks` in the `conversion` dataframe, we **pass in the same variable** for both x and y in the call to `geom`:
 ```r
 plot <- conversion %>%
   ggplot(aes(clicks, clicks)) +
+  geom_boxplot()
+```
+
+For example,to plot `labor_income`:
+```r
+labor_income <- data_clean %>%
+  ggplot(aes(labor_income, labor_income)) +
   geom_boxplot()
 ```
