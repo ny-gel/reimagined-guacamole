@@ -15,7 +15,10 @@
 
 ### SDD with Codex
 - The **interview technique**: "Ask me questions about the utility we are building. After I answer, turn my answers into a `spec.md` checklist."
+  - ```I want to build a game. Before writing the spec, ask me a few questions about how I want it structured. Then create a SPEC.md with exactly four steps covering the MVP... Each step should have a single checkbox item.```
+
   - Can also be captured as a workflow in `AGENTS.md`, where `spec.md` tells Codex what we are building; and `AGENTS.md` tells Codex how to move through the work
+
   - ```py
     ###Next Task Workflow
     When I ask you to do the next task:
