@@ -34,10 +34,10 @@
 
 ### Context management with Codex
 - For session-level context, we can manage what Codex carries forward:
-  - Use /clear to stop carrying the old conversation forward
-  - Use /compact to keep a shorter version of useful history
-  - Use /status to inspect how much context the session is using
-  - Use @file references to bring in only the files that matter
-- Over the course of a project, an AGENTS.md file can collect several workflows and preferences.
-  - AGENTS.md should contain durable, high-level guidance. More specialized details can live in focused documents.
+  - Use `/clear` to stop carrying the old conversation forward
+  - Use `/compact` to keep a shorter version of useful history
+  - Use `/status` to inspect how much context the session is using
+  - Use `@file` references to bring in only the files that matter
+- Over the course of a project, an `AGENTS.md` file can collect several workflows and preferences.
+  - `AGENTS.md` should contain durable, high-level guidance. More specialized details can live in focused documents.
   - Instead of placing every testing detail here, we can move that guidance into `docs/testing.md` and point Codex there when the task involves tests.
