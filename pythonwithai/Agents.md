@@ -6,7 +6,15 @@
     - `~/.codex/AGENTS.md` for personal preferences that apply across all projects
     - `./AGENTS.md` for instructions scoped to a specific project
     - `/init` can help create a starter `./AGENTS.md` file directly inside the session.
-   
+
+### Steering Claude with `CLAUDE.md`
+- For instructions that provide persistent instructions for the project, `CLAUDE.md` is the approach --> coding style preferences, how we want Claude to communicate, project-specific rules, etc.
+ - `CLAUDE.md` can sit in a few places:
+    - `~/.claude/CLAUDE.md` for personal preferences that apply across all projects
+    - `./CLAUDE.md` for instructions scoped to a specific project
+    - `/init` can help create a starter `./CLAUDE.md` file directly inside the session, with Claude Code.
+    - "Ask me a few questions about how I like to write, test changes, then use my answers to make changes to `CLAUDE.md`.
+
 ### Slash commands
 - `/diff` shows Git-style diff of what changed in the working directory
 - `/clear` clears the current conversation context, so we can start fresh when a session is no longer useful
